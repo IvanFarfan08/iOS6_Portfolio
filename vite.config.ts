@@ -8,5 +8,15 @@ export default defineConfig({
   base: '/iOS6_Portfolio/',
   plugins: [
     tailwindcss(),
-    react()],
+    react()
+  ],
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    }
+  }
 })
