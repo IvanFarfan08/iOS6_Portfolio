@@ -16,7 +16,7 @@ function DesignsScreen() {
                     className="w-full h-full transition-all duration-500" 
                 />
             </div>
-            <div className="absolute inset-0 overflow-auto">
+            <div className="absolute inset-0 flex items-center justify-center">
                 <DesignLayout onDesignClick={handleDesignClick} />
             </div>
         </div>

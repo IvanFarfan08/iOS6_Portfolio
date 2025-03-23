@@ -25,7 +25,12 @@ function Design({ name, image, link = '#', onClick }: DesignProps) {
     };
 
     return (
-        <div className="flex flex-col items-center gap-3.5 py-10" onClick={handleClick}>
+        <div 
+            className={`flex flex-col items-center gap-3.5 py-10 cursor-pointer ${
+                isPressed ? 'scale-95' : 'hover:scale-105'
+            } transition-transform duration-200`} 
+            onClick={handleClick}
+        >
             <div className="w-1/2 aspect-[16/9] bg-white shadow-[0_0.5px_0_rgba(0,0,0,0.15),0_3px_6px_rgba(0,0,0,0.1)] p-1">
                 <img
                     src={image}
