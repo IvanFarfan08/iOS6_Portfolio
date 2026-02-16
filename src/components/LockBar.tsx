@@ -10,9 +10,9 @@ function LockBar() {
             <div className="absolute w-9/10 md:w-[400px] h-[71px] z-1 bottom-10 left-1/2 -translate-x-1/2 bg-[#1a1c1db2] rounded-[21px] shadow-[inset_0px_0px_9.4px_-1px_#e6e6e640]"  />
         </div>
         <div className="w-1/5 md:w-[206px] h-[37px]">
-            <div 
-              style={gradientStyle}
-              className="absolute select-none z-2 bottom-13 left-1/2 -translate-x-1/4 font-light text-[32px] whitespace-nowrap bg-gradient-to-r from-[#3f3f3f] via-[#fbfbfb] to-[#3f3f3f] bg-clip-text text-transparent font-['Helvetica-Light']">
+            <div
+              style={{...gradientStyle, fontFamily: '"Helvetica Neue", Helvetica, Inter, sans-serif', fontWeight: 300}}
+              className="absolute select-none z-2 bottom-13 left-1/2 -translate-x-1/4 font-light text-[32px] whitespace-nowrap bg-gradient-to-r from-[#3f3f3f] via-[#fbfbfb] to-[#3f3f3f] bg-clip-text text-transparent">
               slide to unlock
             </div>
         </div>

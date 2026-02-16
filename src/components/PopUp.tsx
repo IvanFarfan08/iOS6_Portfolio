@@ -1,5 +1,5 @@
 import React from 'react';
-import gloss from "../assets/Gloss.png";
+import gloss from "../assets/Gloss.webp";
 import { ProjectName } from './ProjectsScreen';
 
 interface PopUpProps {

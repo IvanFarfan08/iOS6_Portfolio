@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import lockedArrow from '../assets/lock_screen/locked_arrow.png';
+import lockedArrow from '../assets/lock_screen/locked_arrow.webp';
 
 interface LockButtonProps {
   onUnlock: () => void;
@@ -13,8 +13,8 @@ function LockButton({ onUnlock }: LockButtonProps) {
   // Refs
   const buttonRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const startXRef = useRef(0);
-  const buttonStartXRef = useRef(0);
+  const grabOffsetRef = useRef(0);
+  const positionRef = useRef(0);
 
 //   console.log('position', position);
   
@@ -31,30 +31,40 @@ function LockButton({ onUnlock }: LockButtonProps) {
 
   // Handlers
   const handleDragStart = (clientX: number) => {
+    if (!buttonRef.current) return;
+
+    const buttonRect = buttonRef.current.getBoundingClientRect();
+    // Store where on the button the user grabbed (relative to button's left edge)
+    grabOffsetRef.current = clientX - buttonRect.left;
     setIsDragging(true);
-    startXRef.current = clientX;
-    buttonStartXRef.current = position;
   };
 
   const handleDragMove = (clientX: number) => {
-    if (!isDragging) return;
+    if (!buttonRef.current) return;
 
-    const maxX = getMaxX();
-    const deltaX = clientX - startXRef.current;
-    const newPosition = Math.max(0, Math.min(buttonStartXRef.current + deltaX, maxX));
+    const buttonRect = buttonRef.current.getBoundingClientRect();
+    // Where the grabbed point on the button should be
+    const targetX = clientX - grabOffsetRef.current;
+    // How far to move from current position
+    const delta = targetX - buttonRect.left;
+    const newPosition = Math.max(0, Math.min(positionRef.current + delta, getMaxX()));
+
+    positionRef.current = newPosition;
     setPosition(newPosition);
 
-    if (newPosition >= maxX * 0.9) {
+    if (newPosition >= getMaxX() * 0.9) {
       onUnlock();
+      positionRef.current = 0;
       setPosition(0);
-    } 
+    }
   };
 
   const handleDragEnd = () => {
     setIsDragging(false);
 
     const maxX = getMaxX();
-    if (position < maxX * 0.9) {
+    if (positionRef.current < maxX * 0.9) {
+      positionRef.current = 0;
       setPosition(0);
     }
   };
@@ -115,11 +125,11 @@ function LockButton({ onUnlock }: LockButtonProps) {
       : 0.8
   };
   
-  const baseStyle = `absolute w-[105px] h-[70px] z-3 bottom-10 rounded-[21px] 
-    shadow-[inset_0px_4px_4px_#00000040] 
-    [background:linear-gradient(180deg,rgba(210,210,210,1)_0%,rgba(108,108,108,1)_100%)] 
-    cursor-grab active:cursor-grabbing transition-all duration-500 ease-out select-none
-    flex items-center justify-center`;
+  const baseStyle = `absolute w-[105px] h-[70px] z-3 bottom-10 rounded-[21px]
+    shadow-[inset_0px_4px_4px_#00000040]
+    [background:linear-gradient(180deg,rgba(210,210,210,1)_0%,rgba(108,108,108,1)_100%)]
+    cursor-grab active:cursor-grabbing select-none
+    flex items-center justify-center ${isDragging ? '' : 'transition-all duration-500 ease-out'}`;
 
   return (
     <div ref={containerRef} className="w-[105px] h-[70px] touch-none">

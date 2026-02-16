@@ -1,8 +1,8 @@
-import dock from '../assets/home/dock.png';
-import biography from '../assets/home/icons/Biography.png';
-import designs from '../assets/home/icons/Designs.png';
-import projects from '../assets/home/icons/Projects.png';
-import resume from '../assets/home/icons/Resume.png';
+import dock from '../assets/home/Dock.webp';
+import biography from '../assets/home/icons/Biography.webp';
+import designs from '../assets/home/icons/Designs.webp';
+import projects from '../assets/home/icons/Projects.webp';
+import resume from '../assets/home/icons/Resume.webp';
 import App from './App';
 
 import { useEffect, useState } from 'react';
@@ -31,16 +31,16 @@ function DockBar({ onAppClick }: DockBarProps) {
 
     return (
         <div className="w-full h-24 flex items-end justify-center">
-            <img 
+            <img
                 className="absolute w-full h-14 md:h-24 bottom-0 left-0"
                 alt="Dock Bar"
                 src={dock}
-                />
+            />
             <div className="absolute bottom-0 mb-8 md:mb-10 grid grid-cols-4" style={{ gap: `${gap}px` }}>
-                <App icon={biography} name="Biography" onClick={() => onAppClick('Biography')}/>
-                <App icon={resume} name="Resume" link="https://drive.google.com/file/d/YOUR_RESUME_ID/view"/>
-                <App icon={projects} name="Projects" onClick={() => onAppClick('Projects')}/>
-                <App icon={designs} name="Designs" onClick={() => onAppClick('Designs')}/>
+                <App icon={biography} name="Biography" onClick={() => onAppClick('Biography')} />
+                <App icon={resume} name="Resume" link="https://docs.google.com/document/d/1PpZlO_xNWjJj41wtlVenTyyOjLTFoEwpzIPZXoevsKM/edit?usp=sharing" />
+                <App icon={projects} name="Projects" onClick={() => onAppClick('Projects')} />
+                <App icon={designs} name="Designs" onClick={() => onAppClick('Designs')} />
             </div>
         </div>
     );

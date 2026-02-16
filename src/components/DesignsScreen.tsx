@@ -1,4 +1,4 @@
-import Designs from "../assets/screens/Designs.png";
+import Designs from "../assets/screens/Designs.webp";
 import DesignLayout, { DesignName } from "./DesignLayout";
 
 function DesignsScreen() {

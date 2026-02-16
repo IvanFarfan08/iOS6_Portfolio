@@ -36,9 +36,9 @@ function App({icon, name, link = '#', onClick}: AppProps) {
                 >
                     <img src={icon} alt="App" className="w-full h-full object-cover"/>
                 </div>
-                <div className="w-full text-center mt-2">
-                    <div className="[text-shadow:0px_2px_4px_#000000cc] [font-family:'Helvetica-Bold',Helvetica] font-bold text-sm text-white tracking-[0] leading-[normal] whitespace-nowrap">
-                        {name} 
+                <div className="relative w-full mt-2">
+                    <div className="absolute left-1/2 -translate-x-1/2 [text-shadow:0px_2px_4px_#000000cc] [font-family:'Helvetica-Bold',Helvetica] font-bold text-sm text-white tracking-[0] leading-[normal] whitespace-nowrap">
+                        {name}
                     </div>
                 </div>
             </div>

@@ -8,12 +8,19 @@ import AppScreen from './components/AppScreen'
 import BiographyScreen from './components/BiographyScreen'
 import ProjectsScreen from './components/ProjectsScreen'
 import DesignsScreen from './components/DesignsScreen'
+import { preloadImages } from './utils/preloadImages'
+
 import './App.css'
 
 function App() {
   const [isLocked, setIsLocked] = useState(true);
   const [activeApp, setActiveApp] = useState<string | null>(null);
   const [date, setDate] = useState(new Date());
+
+  // Preload all images on mount so they're cached before navigation
+  useEffect(() => {
+    preloadImages();
+  }, []);
 
   // Persist lock state
   useEffect(() => {
@@ -26,51 +33,51 @@ function App() {
   // set state and update it every second
 
   useEffect(() => {
-      const timer = setInterval(() => setDate(new Date()), 16); // ~60fps update
+    const timer = setInterval(() => setDate(new Date()), 16); // ~60fps update
 
-      return function cleanup() {
-          clearInterval(timer);
-      };
+    return function cleanup() {
+      clearInterval(timer);
+    };
   }, [])
 
   return (
     <>
-    <div className='w-screen h-screen overflow-hidden touch-none'>
-      <div className='w-full h-full'>
-        <StatusBar showLock={isLocked} date={date}/>
-        {isLocked && (
-          <div>
-            <TimeBar date={date}/>
-            <LockBar/>
-            <LockButton onUnlock={() => setIsLocked(false)}/>
-          </div>
-        )}
-        {!isLocked && (
-          <div>
-            {activeApp === null && (
-              <div>
-                <DockBar onAppClick={setActiveApp}/>
-                <AppScreen date={date}/>
-              </div>
-            )}
-            {activeApp === 'Biography' && <BiographyScreen />}
-            {activeApp === 'Projects' && <ProjectsScreen />}
-            {activeApp === 'Designs' && <DesignsScreen />}
-            {activeApp && (
-              <button 
-                onClick={() => {
-                  window.scrollTo(0, 0);
-                  setActiveApp(null);
-                }}
-                className="fixed top-[35px] left-2 bg-[#007AFF] text-white px-4 py-1.5 rounded-full text-sm font-medium opacity-90 hover:opacity-100 transition-all z-50 shadow-lg"
-              >
-                ← Back
-              </button>
-            )}
-          </div>
-        )}
+      <div className='w-screen h-screen overflow-hidden touch-none'>
+        <div className='w-full h-full'>
+          <StatusBar showLock={isLocked} date={date} />
+          {isLocked && (
+            <div>
+              <TimeBar date={date} />
+              <LockBar />
+              <LockButton onUnlock={() => setIsLocked(false)} />
+            </div>
+          )}
+          {!isLocked && (
+            <div>
+              {activeApp === null && (
+                <div>
+                  <DockBar onAppClick={setActiveApp} />
+                  <AppScreen date={date} onAppClick={setActiveApp} />
+                </div>
+              )}
+              {activeApp === 'Biography' && <BiographyScreen />}
+              {activeApp === 'Projects' && <ProjectsScreen />}
+              {activeApp === 'Designs' && <DesignsScreen />}
+              {activeApp && (
+                <button
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    setActiveApp(null);
+                  }}
+                  className="fixed top-[35px] left-2 bg-[#007AFF] text-white px-4 py-1.5 rounded-full text-sm font-medium opacity-90 hover:opacity-100 transition-all z-50 shadow-lg"
+                >
+                  ← Back
+                </button>
+              )}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
     </>
   )
 }

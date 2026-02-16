@@ -1,5 +1,5 @@
-import vertex from "../assets/designs/vertex.png";
-import portfolio from "../assets/designs/portfolio.png";
+import vertex from "../assets/designs/vertex.webp";
+import portfolio from "../assets/designs/portfolio.webp";
 import Design from './Design';
 import { useEffect, useState } from 'react';
 
