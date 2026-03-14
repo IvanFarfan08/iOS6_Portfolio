@@ -1,6 +1,6 @@
 # iOS 6 Portfolio
 
-An interactive portfolio website inspired by the classic iOS 6 interface. Built with React, TypeScript, and Three.js.
+An interactive portfolio website inspired by the classic iOS 6 interface. Built with React (TypeScript).
 
 **Live site:** [ivanfarfan.com](https://ivanfarfan.com)
 
