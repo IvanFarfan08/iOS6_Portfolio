@@ -1,54 +1,52 @@
-# React + TypeScript + Vite
+# iOS 6 Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive portfolio website inspired by the classic iOS 6 interface. Built with React, TypeScript, and Three.js.
 
-Currently, two official plugins are available:
+**Live site:** [ivanfarfan.com](https://ivanfarfan.com)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Lock Screen** — Drag-to-unlock mechanic with smooth animations and touch/mouse support
+- **Home Screen** — Responsive app grid with dock, mimicking the iOS 6 layout
+- **Biography** — Profile and personal bio in a Contacts-style screen
+- **Projects** — Bookshelf-style project showcase with pop-up modals linking to demos, repos, and awards
+- **Designs** — Figma design gallery with responsive grid layout
+- **3D Portfolio** — Interactive Three.js viewer with orbit controls and studio lighting
+- **Clock & Calendar** — Functional apps displaying real-time data
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **React 19** + **TypeScript**
+- **Vite** — Build tooling and dev server
+- **Tailwind CSS** — Styling
+- **Three.js** — 3D model rendering
+- **gh-pages** — Deployment to GitHub Pages
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Deploy to GitHub Pages
+npm run deploy
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```
+src/
+├── components/
+│   ├── lock_screen/     # Lock screen UI (StatusBar, TimeBar, LockBar, LockButton)
+│   ├── home/            # Home screen grid, dock, and app icons
+│   └── screens/         # App screens (Biography, Projects, Designs, 3D Portfolio)
+├── assets/              # Images, icons, 3D models
+├── App.tsx              # Root component with state management
+└── main.tsx             # Entry point
 ```
