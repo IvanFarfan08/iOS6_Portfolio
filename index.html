@@ -4,27 +4,35 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/assets/icons/icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ivan Farfan Diaz | Software Engineer & Automation Developer</title>
-    <meta name="description" content="Portfolio of Ivan Farfan Diaz — Software Engineer, Automation Engineer at One Stone LLC, and Senior at Stevens Institute of Technology. Building Vertex, 3D modeling tools. Thomas H. Scholl Award Winner 2024." />
+    <title>Ivan Farfan Diaz | Software Engineer & Automation Engineer</title>
+    <meta name="description" content="Full-stack Software Engineer & Automation Engineer at One Stone LLC. Stevens Institute senior. Building Vertex, award-winning 3D tools. View projects and designs." />
     <meta name="author" content="Ivan Farfan Diaz" />
     <link rel="canonical" href="https://ivanfarfan.com/" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Ivan Farfan Diaz | Software Engineer & Automation Developer" />
-    <meta property="og:description" content="Software engineering projects, UI/UX designs, and professional portfolio. Building Vertex — 3D modeling tools." />
+    <meta property="og:title" content="Ivan Farfan Diaz | Software Engineer & Automation Engineer" />
+    <meta property="og:description" content="Full-stack engineer building Vertex (award-winning 3D tools), automations at One Stone LLC, and UI/UX designs at Blueprint. View projects and portfolio." />
     <meta property="og:url" content="https://ivanfarfan.com/" />
     <meta property="og:type" content="profile" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://ivanfarfan.com/images/profile.webp" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="400" />
+    <meta property="og:image:alt" content="Ivan Farfan Diaz, Software Engineer" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Ivan Farfan Diaz | Software Engineer & Automation Developer" />
-    <meta name="twitter:description" content="Software engineering projects, UI/UX designs, and professional portfolio. Building Vertex — 3D modeling tools." />
+    <meta name="twitter:title" content="Ivan Farfan Diaz | Software Engineer & Automation Engineer" />
+    <meta name="twitter:description" content="Full-stack engineer building Vertex (award-winning 3D tools), automations at One Stone LLC, and UI/UX designs at Blueprint." />
+    <meta name="twitter:image" content="https://ivanfarfan.com/images/profile.webp" />
 
     <!-- Google Fonts: preconnect + stylesheet instead of CSS @import -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" />
+
+    <!-- Preload LCP background image -->
+    <link rel="preload" as="image" href="/src/assets/general/iPad_background.webp" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -49,6 +57,8 @@
           "isPartOf": { "@id": "https://ivanfarfan.com/#website" },
           "about": { "@id": "https://ivanfarfan.com/#person" },
           "mainEntity": { "@id": "https://ivanfarfan.com/#person" },
+          "dateCreated": "2024-01-01",
+          "dateModified": "2026-03-14",
           "inLanguage": "en"
         },
         {
@@ -57,7 +67,9 @@
           "name": "Ivan Farfan Diaz",
           "givenName": "Ivan",
           "familyName": "Farfan Diaz",
+          "description": "Full-stack Software Engineer and Automation Engineer at One Stone LLC. Senior at Stevens Institute of Technology. Founder of Vertex, award-winning 3D modeling tools.",
           "url": "https://ivanfarfan.com/",
+          "image": "https://ivanfarfan.com/images/profile.webp",
           "email": "ifarfand@stevens.edu",
           "jobTitle": "Automation Engineer",
           "worksFor": {
@@ -69,13 +81,28 @@
             "name": "Stevens Institute of Technology",
             "url": "https://www.stevens.edu/"
           },
+          "memberOf": {
+            "@type": "Organization",
+            "name": "Blueprint",
+            "description": "Student-run organization developing software solutions for non-profit organizations"
+          },
           "knowsAbout": [
             "Software Engineering",
+            "Full-Stack Development",
             "3D Modeling",
             "Automation Engineering",
             "UI/UX Design",
             "React",
-            "TypeScript"
+            "TypeScript",
+            "Python",
+            "Swift",
+            "SwiftUI",
+            "Tailwind CSS",
+            "Flask",
+            "REST APIs",
+            "Blender",
+            "Machine Learning",
+            "Computer Vision"
           ],
           "address": {
             "@type": "PostalAddress",
@@ -89,20 +116,38 @@
           ]
         },
         {
+          "@type": "ItemList",
+          "@id": "https://ivanfarfan.com/#projects",
+          "name": "Software Projects",
+          "description": "Portfolio of software engineering projects by Ivan Farfan Diaz.",
+          "numberOfItems": 4,
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "item": { "@id": "https://ivanfarfan.com/#vertex" } },
+            { "@type": "ListItem", "position": 2, "item": { "@id": "https://ivanfarfan.com/#dishdetective" } },
+            { "@type": "ListItem", "position": 3, "item": { "@id": "https://ivanfarfan.com/#recalled" } },
+            { "@type": "ListItem", "position": 4, "item": { "@id": "https://ivanfarfan.com/#vertexannotator" } }
+          ]
+        },
+        {
           "@type": "SoftwareApplication",
           "@id": "https://ivanfarfan.com/#vertex",
           "name": "Vertex",
-          "description": "Tools that make 3D modeling more accessible, efficient, and intuitive. Thomas H. Scholl Award Winner (2024).",
+          "description": "Wireframe-to-3D-model pipeline using machine learning to convert hand-drawn sketches into editable 3D geometry. Built with React and Python/Flask. Thomas H. Scholl Award Winner (2024).",
           "url": "https://vertex3d.site/",
           "applicationCategory": "DesignApplication",
           "creator": { "@id": "https://ivanfarfan.com/#person" },
-          "award": "Thomas H. Scholl Award (2024)"
+          "award": "Thomas H. Scholl Award (2024)",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
         },
         {
           "@type": "SoftwareSourceCode",
           "@id": "https://ivanfarfan.com/#dishdetective",
           "name": "DishDetective",
-          "description": "Point-of-Sale (POS) system powered by Teachable Machine (Google's Computer Vision Model).",
+          "description": "Point-of-Sale system using Google's Teachable Machine for computer vision-based food recognition. Reduces transaction time and human error in food service.",
           "url": "https://github.com/IvanFarfan08/DishDetective",
           "codeRepository": "https://github.com/IvanFarfan08/DishDetective",
           "programmingLanguage": "JavaScript",
@@ -112,9 +157,9 @@
           "@type": "MobileApplication",
           "@id": "https://ivanfarfan.com/#recalled",
           "name": "Recalled",
-          "description": "iOS and visionOS App for product recall scanning. Identifying recalled products and alerting users, ensuring food safety.",
+          "description": "iOS and visionOS app that scans product barcodes to check against FDA and CPSC recall databases in real time. Built with Swift and Apple's Vision framework.",
           "url": "https://devpost.com/software/hackathon-project-3kxw6c",
-          "operatingSystem": "iOS, visionOS",
+          "operatingSystem": ["iOS", "visionOS"],
           "applicationCategory": "HealthApplication",
           "creator": { "@id": "https://ivanfarfan.com/#person" }
         },
@@ -122,7 +167,7 @@
           "@type": "WebApplication",
           "@id": "https://ivanfarfan.com/#vertexannotator",
           "name": "Vertex Annotator",
-          "description": "Platform to create wireframe parsing datasets for Machine Learning training.",
+          "description": "Web platform for creating labeled wireframe parsing datasets used to train Vertex's machine learning models. Exports annotations in ML-ready formats.",
           "url": "https://www.vertexannotator.xyz/",
           "applicationCategory": "DeveloperApplication",
           "creator": { "@id": "https://ivanfarfan.com/#person" }
@@ -137,18 +182,31 @@
     <noscript>
       <main>
         <h1>Ivan Farfan Diaz</h1>
-        <h2>Software Engineer & Automation Developer</h2>
-        <p>Senior Software Engineering student at Stevens Institute of Technology. Automation Engineer at One Stone LLC. Based in Hoboken, NJ.</p>
-        <p>Ivan is passionate about building tools that bring efficiency and automation to industries that rely on manual processes such as sales and 3D modeling.</p>
+        <h2>Full-Stack Software Engineer & Automation Engineer</h2>
+        <p>Senior Software Engineering student at <strong>Stevens Institute of Technology</strong>. Automation Engineer at <strong>One Stone LLC</strong>. Based in Hoboken, NJ.</p>
+
+        <h3>Technical Skills</h3>
+        <p>Full-stack developer working with React, TypeScript, Tailwind CSS, Python, Flask, Swift, SwiftUI, and Blender. Experienced with REST APIs, computer vision, machine learning pipelines, and CRM automation.</p>
+
+        <h3>Work Experience</h3>
+        <p>At One Stone LLC, Ivan designs and implements automations for CRM systems — building REST API integrations, automated workflows, and custom dashboards that give sales teams real-time pipeline visibility.</p>
+
+        <h3>Vertex — Award-Winning 3D Modeling Startup</h3>
+        <p>Vertex is a wireframe-to-3D-model pipeline using machine learning to convert hand-drawn sketches into editable 3D geometry. Built with React and Python/Flask, leveraging custom-trained computer vision models. Winner of the <strong>Thomas H. Scholl Award (2024)</strong> at Stevens for technical innovation and commercial viability. Part of the Launchpad / iSTEM program since 2022.</p>
+
+        <h3>Blueprint — VP of Design</h3>
+        <p>VP of Design at Blueprint, a student-run organization developing free software solutions for non-profit organizations. Leads the design team across multiple NPO projects, conducts design reviews, and mentors junior designers on accessibility and user-centered design.</p>
+
         <h2>Projects</h2>
         <ul>
-          <li><strong>Vertex</strong> — 3D modeling tools that make the workflow more accessible, efficient, and intuitive. Thomas H. Scholl Award Winner (2024). <a href="https://vertex3d.site/">Visit Vertex</a></li>
-          <li><strong>DishDetective</strong> — AI-powered Point-of-Sale system using Google's Teachable Machine for computer vision. <a href="https://github.com/IvanFarfan08/DishDetective">View on GitHub</a></li>
-          <li><strong>Recalled</strong> — iOS and visionOS app for scanning recalled products and ensuring food safety. <a href="https://devpost.com/software/hackathon-project-3kxw6c">View on Devpost</a></li>
-          <li><strong>Vertex Annotator</strong> — Platform for creating wireframe parsing datasets for ML training. <a href="https://www.vertexannotator.xyz/">Visit site</a></li>
+          <li><strong>Vertex</strong> — Wireframe-to-3D-model pipeline using ML to convert sketches into editable geometry. React + Python/Flask. Thomas H. Scholl Award Winner (2024). <a href="https://vertex3d.site/">Visit Vertex</a></li>
+          <li><strong>DishDetective</strong> — AI-powered Point-of-Sale system using Google's Teachable Machine for computer vision-based food recognition. <a href="https://github.com/IvanFarfan08/DishDetective">View on GitHub</a></li>
+          <li><strong>Recalled</strong> — iOS and visionOS app for scanning product barcodes against FDA and CPSC recall databases in real time. Built with Swift. <a href="https://devpost.com/software/hackathon-project-3kxw6c">View on Devpost</a></li>
+          <li><strong>Vertex Annotator</strong> — Web platform for creating labeled wireframe parsing datasets for ML training. <a href="https://www.vertexannotator.xyz/">Visit site</a></li>
         </ul>
+
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:ifarfand@stevens.edu">ifarfand@stevens.edu</a></p>
+        <p>Email: <a href="mailto:ifarfand@stevens.edu">ifarfand@stevens.edu</a> | Location: Hoboken, NJ</p>
         <p><a href="https://github.com/IvanFarfan08">GitHub</a> | <a href="https://www.linkedin.com/in/ifdiaz/">LinkedIn</a></p>
       </main>
     </noscript>

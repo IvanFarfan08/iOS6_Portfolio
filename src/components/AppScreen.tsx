@@ -14,9 +14,18 @@ interface AppScreenProps {
 }
 
 function AppScreen({ date }: AppScreenProps) {
-    const [columnGap, setColumnGap] = useState(24);
-    const [rowGap, setRowGap] = useState(40); // Initial row gap
-    const [columns, setColumns] = useState(5);
+    const [columnGap, setColumnGap] = useState(() => {
+        const w = typeof window !== 'undefined' ? window.innerWidth : 768;
+        return w < 768 ? 24 : 40;
+    });
+    const [rowGap, setRowGap] = useState(() => {
+        const w = typeof window !== 'undefined' ? window.innerWidth : 768;
+        return w < 768 ? 24 : 60;
+    });
+    const [columns, setColumns] = useState(() => {
+        const w = typeof window !== 'undefined' ? window.innerWidth : 768;
+        return w < 768 ? 4 : 5;
+    });
 
     useEffect(() => {
         const calculateLayout = () => {
@@ -26,17 +35,17 @@ function AppScreen({ date }: AppScreenProps) {
             setColumns(newColumns);
 
             // iOS-style spacing calculation
-            const widthPercentage = newColumns === 5 ? 0.9 : 0.8; // 95% width for 5 columns, 80% for 4
+            const widthPercentage = newColumns === 5 ? 0.9 : 0.8;
             const desiredTotalWidth = screenWidth * widthPercentage;
-            const minGap = screenWidth < 768 ? 24 : 40; // Smaller gaps on mobile
+            const minGap = screenWidth < 768 ? 24 : 40;
             const newColumnGap = Math.max(minGap, (desiredTotalWidth - (appWidth * newColumns)) / (newColumns - 1));
-            setColumnGap(Math.min(newColumnGap, 400)); // Allow for even wider gaps on large screens
+            setColumnGap(Math.min(newColumnGap, 400));
 
-            // Calculate row gap based on screen height - smaller on mobile
+            // Calculate row gap based on screen height
             const screenHeight = window.innerHeight;
             const isMobile = screenWidth < 768;
             const minRowGap = isMobile ? 24 : 60;
-            const rowGapPercent = isMobile ? 0.04 : 0.1; // 4% on mobile, 10% on desktop
+            const rowGapPercent = isMobile ? 0.04 : 0.1;
             const maxRowGap = isMobile ? 40 : 160;
             const newRowGap = Math.max(minRowGap, screenHeight * rowGapPercent);
             setRowGap(Math.min(newRowGap, maxRowGap));
@@ -49,9 +58,8 @@ function AppScreen({ date }: AppScreenProps) {
 
     return (
         <div className="w-full h-24 flex items-end justify-center">
-            <div
+            <nav
                 className="absolute top-0 mt-[72px] grid px-4 md:px-0"
-                role="navigation"
                 aria-label="Applications"
                 style={{
                     columnGap: `${columnGap}px`,
@@ -65,7 +73,7 @@ function AppScreen({ date }: AppScreenProps) {
                 <ClockApp icon={clock} name="Clock" date={date} />
                 <CalendarApp icon={calendar} name="Calendar" date={date} />
 
-            </div>
+            </nav>
         </div>
     );
 }

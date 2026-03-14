@@ -16,6 +16,7 @@ import './App.css'
 function HomeScreen({ date }: { date: Date }) {
   return (
     <>
+      <h1 className="sr-only">Ivan Farfan Diaz — Software Engineer & Automation Engineer</h1>
       <DockBar />
       <AppScreen date={date} />
     </>
@@ -67,26 +68,25 @@ function App() {
 
   return (
     <>
-      <div className='w-screen h-screen overflow-hidden touch-none'>
+      <div className='w-screen h-screen overflow-hidden'>
         <div className='w-full h-full'>
           <StatusBar showLock={showLock} date={date} />
           {showLock && (
-            <div>
+            <div className="touch-none">
               <TimeBar date={date} />
               <LockBar />
               <LockButton onUnlock={handleUnlock} />
             </div>
           )}
-          {!showLock && (
-            <main>
-              <Routes>
-                <Route path="/" element={<HomeScreen date={date} />} />
-                <Route path="/biography" element={<><BiographyScreen /><BackButton /></>} />
-                <Route path="/projects" element={<><ProjectsScreen /><BackButton /></>} />
-                <Route path="/designs" element={<><DesignsScreen /><BackButton /></>} />
-              </Routes>
-            </main>
-          )}
+          {/* Always render main content so crawlers can see it; lock screen overlays on top */}
+          <main className={showLock ? 'sr-only' : ''}>
+            <Routes>
+              <Route path="/" element={<HomeScreen date={date} />} />
+              <Route path="/biography" element={<><BiographyScreen /><BackButton /></>} />
+              <Route path="/projects" element={<><ProjectsScreen /><BackButton /></>} />
+              <Route path="/designs" element={<><DesignsScreen /><BackButton /></>} />
+            </Routes>
+          </main>
         </div>
       </div>
     </>

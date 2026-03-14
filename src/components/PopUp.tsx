@@ -16,7 +16,7 @@ function PopUp({title, description, buttons, links, setActiveProject}: PopUpProp
             <div className="absolute inset-0 bg-[#081a50cc] z-0"/>
             <img className="absolute w-[276px] h-[29px] top-0 left-0 object-cover z-10"
                 src={gloss}
-                alt="Gloss"/>
+                alt=""/>
             <div className="flex flex-col items-start gap-2 relative self-stetch w-full flex-[0_0_auto] z-10">
                 <h3 className="self-stretch mt-[-1.00px] leading-[normal] relative [text-shadow:0_-1px_0px_#000000c] [font-family:'Helvetica_Neue-Bold', Helvetica] font-bold text-color-[#ffffff] text-lg text-center tracking-[0]">
                     {title}

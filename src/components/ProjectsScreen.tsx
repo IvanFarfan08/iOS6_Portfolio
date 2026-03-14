@@ -46,7 +46,7 @@ function ProjectsScreen() {
             <div className="w-full h-[calc(100vh-30px)] overflow-hidden">
                 <img
                     src={iBooks}
-                    alt="iBooks"
+                    alt=""
                     className="w-full h-full transition-all duration-500"
                 />
             </div>

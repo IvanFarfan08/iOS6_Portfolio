@@ -12,7 +12,7 @@ function DesignsScreen() {
             <div className="w-full h-[calc(100vh-30px)] overflow-hidden">
                 <img 
                     src={Designs} 
-                    alt="Designs" 
+                    alt="" 
                     className="w-full h-full transition-all duration-500" 
                 />
             </div>

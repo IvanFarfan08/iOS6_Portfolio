@@ -36,10 +36,9 @@
     min-height: 100vh;
   }
 
-  /* Changed original h1 styling to be more specific */
-  h1:not(.time-display) {
-    font-size: 3.2em;
-    line-height: 1.1;
+  /* Scope h1 styling to time display only — semantic h1s use their own classes */
+  .time-display {
+    /* Handled below */
   }
 
   /* Added specific styling for the TimeBar components */
