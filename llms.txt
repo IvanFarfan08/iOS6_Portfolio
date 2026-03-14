@@ -1,0 +1,23 @@
+# Ivan Farfan Diaz
+
+> Senior Software Engineering student at Stevens Institute of Technology. Automation Engineer at One Stone LLC. Founder of Vertex, a 3D modeling software startup. VP of Design at Blueprint, a student-run organization building software for nonprofits.
+
+## About
+
+Ivan Farfan Diaz is a software engineer, automation specialist, and 3D modeler based in Hoboken, NJ. He is currently completing his senior year in Software Engineering at Stevens Institute of Technology. He works as an Automation Engineer at One Stone LLC, designing and implementing automations and custom applications for CRM systems.
+
+Ivan is passionate about building tools that bring efficiency and automation to industries that rely on manual processes, particularly in sales and 3D modeling.
+
+## Projects
+
+- [Vertex](https://vertex3d.site/): 3D modeling tools that make the workflow more accessible, efficient, and intuitive. Winner of the Thomas H. Scholl Award (2024) at Stevens Institute of Technology. Part of the Launchpad/iSTEM program.
+- [DishDetective](https://github.com/IvanFarfan08/DishDetective): AI-powered Point-of-Sale (POS) system using Google's Teachable Machine computer vision model for automatic dish identification.
+- [Recalled](https://devpost.com/software/hackathon-project-3kxw6c): iOS and visionOS app for scanning and identifying recalled products, alerting users to ensure food safety.
+- [Vertex Annotator](https://www.vertexannotator.xyz/): Web platform for creating wireframe parsing datasets used in Machine Learning model training.
+
+## Links
+
+- GitHub: https://github.com/IvanFarfan08
+- LinkedIn: https://www.linkedin.com/in/ifdiaz/
+- Email: ifarfand@stevens.edu
+- Portfolio: https://ivanfarfan.com
