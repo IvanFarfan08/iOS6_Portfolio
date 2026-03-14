@@ -4,10 +4,154 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/src/assets/icons/icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ivan's Portfolio</title>
+    <title>Ivan Farfan Diaz | Software Engineer & Automation Developer</title>
+    <meta name="description" content="Portfolio of Ivan Farfan Diaz — Software Engineer, Automation Engineer at One Stone LLC, and Senior at Stevens Institute of Technology. Building Vertex, 3D modeling tools. Thomas H. Scholl Award Winner 2024." />
+    <meta name="author" content="Ivan Farfan Diaz" />
+    <link rel="canonical" href="https://ivanfarfan.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ivan Farfan Diaz | Software Engineer & Automation Developer" />
+    <meta property="og:description" content="Software engineering projects, UI/UX designs, and professional portfolio. Building Vertex — 3D modeling tools." />
+    <meta property="og:url" content="https://ivanfarfan.com/" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ivan Farfan Diaz | Software Engineer & Automation Developer" />
+    <meta name="twitter:description" content="Software engineering projects, UI/UX designs, and professional portfolio. Building Vertex — 3D modeling tools." />
+
+    <!-- Google Fonts: preconnect + stylesheet instead of CSS @import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://ivanfarfan.com/#website",
+          "url": "https://ivanfarfan.com/",
+          "name": "Ivan Farfan Diaz - Portfolio",
+          "description": "Personal portfolio of Ivan Farfan Diaz, Senior Software Engineering student at Stevens Institute of Technology, Automation Engineer, and 3D Modeler.",
+          "publisher": { "@id": "https://ivanfarfan.com/#person" },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://ivanfarfan.com/#profilepage",
+          "url": "https://ivanfarfan.com/",
+          "name": "Ivan Farfan Diaz - Portfolio",
+          "description": "Personal portfolio featuring software engineering projects, UI/UX designs, and professional biography.",
+          "isPartOf": { "@id": "https://ivanfarfan.com/#website" },
+          "about": { "@id": "https://ivanfarfan.com/#person" },
+          "mainEntity": { "@id": "https://ivanfarfan.com/#person" },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://ivanfarfan.com/#person",
+          "name": "Ivan Farfan Diaz",
+          "givenName": "Ivan",
+          "familyName": "Farfan Diaz",
+          "url": "https://ivanfarfan.com/",
+          "email": "ifarfand@stevens.edu",
+          "jobTitle": "Automation Engineer",
+          "worksFor": {
+            "@type": "Organization",
+            "name": "One Stone LLC"
+          },
+          "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Stevens Institute of Technology",
+            "url": "https://www.stevens.edu/"
+          },
+          "knowsAbout": [
+            "Software Engineering",
+            "3D Modeling",
+            "Automation Engineering",
+            "UI/UX Design",
+            "React",
+            "TypeScript"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Hoboken",
+            "addressRegion": "NJ",
+            "addressCountry": "US"
+          },
+          "sameAs": [
+            "https://github.com/IvanFarfan08",
+            "https://www.linkedin.com/in/ifdiaz/"
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://ivanfarfan.com/#vertex",
+          "name": "Vertex",
+          "description": "Tools that make 3D modeling more accessible, efficient, and intuitive. Thomas H. Scholl Award Winner (2024).",
+          "url": "https://vertex3d.site/",
+          "applicationCategory": "DesignApplication",
+          "creator": { "@id": "https://ivanfarfan.com/#person" },
+          "award": "Thomas H. Scholl Award (2024)"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://ivanfarfan.com/#dishdetective",
+          "name": "DishDetective",
+          "description": "Point-of-Sale (POS) system powered by Teachable Machine (Google's Computer Vision Model).",
+          "url": "https://github.com/IvanFarfan08/DishDetective",
+          "codeRepository": "https://github.com/IvanFarfan08/DishDetective",
+          "programmingLanguage": "JavaScript",
+          "creator": { "@id": "https://ivanfarfan.com/#person" }
+        },
+        {
+          "@type": "MobileApplication",
+          "@id": "https://ivanfarfan.com/#recalled",
+          "name": "Recalled",
+          "description": "iOS and visionOS App for product recall scanning. Identifying recalled products and alerting users, ensuring food safety.",
+          "url": "https://devpost.com/software/hackathon-project-3kxw6c",
+          "operatingSystem": "iOS, visionOS",
+          "applicationCategory": "HealthApplication",
+          "creator": { "@id": "https://ivanfarfan.com/#person" }
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://ivanfarfan.com/#vertexannotator",
+          "name": "Vertex Annotator",
+          "description": "Platform to create wireframe parsing datasets for Machine Learning training.",
+          "url": "https://www.vertexannotator.xyz/",
+          "applicationCategory": "DeveloperApplication",
+          "creator": { "@id": "https://ivanfarfan.com/#person" }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <!-- Fallback content for crawlers and non-JS environments -->
+    <noscript>
+      <main>
+        <h1>Ivan Farfan Diaz</h1>
+        <h2>Software Engineer & Automation Developer</h2>
+        <p>Senior Software Engineering student at Stevens Institute of Technology. Automation Engineer at One Stone LLC. Based in Hoboken, NJ.</p>
+        <p>Ivan is passionate about building tools that bring efficiency and automation to industries that rely on manual processes such as sales and 3D modeling.</p>
+        <h2>Projects</h2>
+        <ul>
+          <li><strong>Vertex</strong> — 3D modeling tools that make the workflow more accessible, efficient, and intuitive. Thomas H. Scholl Award Winner (2024). <a href="https://vertex3d.site/">Visit Vertex</a></li>
+          <li><strong>DishDetective</strong> — AI-powered Point-of-Sale system using Google's Teachable Machine for computer vision. <a href="https://github.com/IvanFarfan08/DishDetective">View on GitHub</a></li>
+          <li><strong>Recalled</strong> — iOS and visionOS app for scanning recalled products and ensuring food safety. <a href="https://devpost.com/software/hackathon-project-3kxw6c">View on Devpost</a></li>
+          <li><strong>Vertex Annotator</strong> — Platform for creating wireframe parsing datasets for ML training. <a href="https://www.vertexannotator.xyz/">Visit site</a></li>
+        </ul>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:ifarfand@stevens.edu">ifarfand@stevens.edu</a></p>
+        <p><a href="https://github.com/IvanFarfan08">GitHub</a> | <a href="https://www.linkedin.com/in/ifdiaz/">LinkedIn</a></p>
+      </main>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

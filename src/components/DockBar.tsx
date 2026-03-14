@@ -7,21 +7,17 @@ import App from './App';
 
 import { useEffect, useState } from 'react';
 
-interface DockBarProps {
-    onAppClick: (appName: string) => void;
-}
-
-function DockBar({ onAppClick }: DockBarProps) {
-    const [gap, setGap] = useState(24); // 6 * 4px (default Tailwind spacing)
+function DockBar() {
+    const [gap, setGap] = useState(24);
 
     useEffect(() => {
         const calculateGap = () => {
             const screenWidth = window.innerWidth;
-            const appWidth = 80; // width of each app icon
+            const appWidth = 80;
             const numApps = 4;
-            const desiredTotalWidth = screenWidth * 0.7; // use 70% of screen width
+            const desiredTotalWidth = screenWidth * 0.7;
             const newGap = Math.max(24, (desiredTotalWidth - (appWidth * numApps)) / (numApps - 1));
-            setGap(Math.min(newGap, 208)); // max gap of 52 * 4px = 208px
+            setGap(Math.min(newGap, 208));
         };
 
         calculateGap();
@@ -36,12 +32,12 @@ function DockBar({ onAppClick }: DockBarProps) {
                 alt="Dock Bar"
                 src={dock}
             />
-            <div className="absolute bottom-0 mb-8 md:mb-10 grid grid-cols-4" style={{ gap: `${gap}px` }}>
-                <App icon={biography} name="Biography" onClick={() => onAppClick('Biography')} />
+            <nav className="absolute bottom-0 mb-8 md:mb-10 grid grid-cols-4" aria-label="Main navigation" style={{ gap: `${gap}px` }}>
+                <App icon={biography} name="Biography" to="/biography" />
                 <App icon={resume} name="Resume" link="https://docs.google.com/document/d/1PpZlO_xNWjJj41wtlVenTyyOjLTFoEwpzIPZXoevsKM/edit?usp=sharing" />
-                <App icon={projects} name="Projects" onClick={() => onAppClick('Projects')} />
-                <App icon={designs} name="Designs" onClick={() => onAppClick('Designs')} />
-            </div>
+                <App icon={projects} name="Projects" to="/projects" />
+                <App icon={designs} name="Designs" to="/designs" />
+            </nav>
         </div>
     );
 }

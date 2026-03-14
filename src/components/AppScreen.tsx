@@ -11,10 +11,9 @@ import ClockApp from './ClockApp';
 
 interface AppScreenProps {
     date: Date;
-    onAppClick: (appName: string) => void;
 }
 
-function AppScreen({ date, onAppClick }: AppScreenProps) {
+function AppScreen({ date }: AppScreenProps) {
     const [columnGap, setColumnGap] = useState(24);
     const [rowGap, setRowGap] = useState(40); // Initial row gap
     const [columns, setColumns] = useState(5);
@@ -52,6 +51,8 @@ function AppScreen({ date, onAppClick }: AppScreenProps) {
         <div className="w-full h-24 flex items-end justify-center">
             <div
                 className="absolute top-0 mt-[72px] grid px-4 md:px-0"
+                role="navigation"
+                aria-label="Applications"
                 style={{
                     columnGap: `${columnGap}px`,
                     rowGap: `${rowGap}px`,

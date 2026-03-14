@@ -1,9 +1,26 @@
+import { useEffect } from 'react';
+
 function LockBar() {
+    useEffect(() => {
+        const id = 'lockbar-gradient-keyframes';
+        if (!document.getElementById(id)) {
+            const styleSheet = document.createElement("style");
+            styleSheet.id = id;
+            styleSheet.textContent = `
+                @keyframes gradientMove {
+                    0% { background-position: 100% 0; }
+                    100% { background-position: -100% 0; }
+                }
+            `;
+            document.head.appendChild(styleSheet);
+        }
+    }, []);
+
     const gradientStyle = {
         backgroundSize: '200% 100%',
         animation: 'gradientMove 2s linear infinite'
     };
-    return (    
+    return (
         <div className="w-full h-[150px]">
         <div className="absolute w-full h-[150px] bottom-0 left-0 bg-[#1b1b1b] shadow-[inset_0px_75px_8px_#00000040] opacity-95" />
         <div className="w-9/10 md:w-[400px] h-[71px]">
@@ -19,16 +36,5 @@ function LockBar() {
       </div>
     );
 }
-
-const styles = `
-  @keyframes gradientMove {
-    0% { background-position: 100% 0; }
-    100% { background-position: -100% 0; }
-  }
-`;
-
-const styleSheet = document.createElement("style");
-styleSheet.innerText = styles;
-document.head.appendChild(styleSheet);
 
 export default LockBar

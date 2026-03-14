@@ -3,7 +3,8 @@
     "allow": [
       "Bash(for:*)",
       "Bash(do npx sharp-cli -i \"$f\" -o \"$f%.png.webp\" -f webp)",
-      "Bash(done)"
+      "Bash(done)",
+      "WebFetch(domain:c.animaapp.com)"
     ]
   }
 }

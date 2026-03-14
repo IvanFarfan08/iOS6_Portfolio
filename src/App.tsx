@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import StatusBar from './components/StatusBar'
 import TimeBar from './components/TimeBar'
 import LockBar from './components/LockBar'
@@ -12,69 +13,79 @@ import { preloadImages } from './utils/preloadImages'
 
 import './App.css'
 
+function HomeScreen({ date }: { date: Date }) {
+  return (
+    <>
+      <DockBar />
+      <AppScreen date={date} />
+    </>
+  );
+}
+
+function BackButton() {
+  const navigate = useNavigate();
+  return (
+    <button
+      onClick={() => {
+        window.scrollTo(0, 0);
+        navigate('/');
+      }}
+      className="fixed top-[35px] left-2 bg-[#007AFF] text-white px-4 py-1.5 rounded-full text-sm font-medium opacity-90 hover:opacity-100 transition-all z-50 shadow-lg"
+    >
+      ← Back
+    </button>
+  );
+}
+
 function App() {
-  const [isLocked, setIsLocked] = useState(true);
-  const [activeApp, setActiveApp] = useState<string | null>(null);
+  const [isLocked, setIsLocked] = useState(() => {
+    return sessionStorage.getItem('unlocked') !== 'true';
+  });
   const [date, setDate] = useState(new Date());
+  const location = useLocation();
 
   // Preload all images on mount so they're cached before navigation
   useEffect(() => {
     preloadImages();
   }, []);
 
-  // Persist lock state
   useEffect(() => {
-    if (!isLocked) {
-      console.log('Device unlocked!');
-    }
-  }, [isLocked])
-
-  // new Date() sets the date when the component is rendered.
-  // set state and update it every second
-
-  useEffect(() => {
-    const timer = setInterval(() => setDate(new Date()), 16); // ~60fps update
+    const timer = setInterval(() => setDate(new Date()), 1000);
 
     return function cleanup() {
       clearInterval(timer);
     };
   }, [])
 
+  const handleUnlock = () => {
+    setIsLocked(false);
+    sessionStorage.setItem('unlocked', 'true');
+  };
+
+  // Only show lock on root route and when not yet unlocked
+  const showLock = isLocked && location.pathname === '/';
+
   return (
     <>
       <div className='w-screen h-screen overflow-hidden touch-none'>
         <div className='w-full h-full'>
-          <StatusBar showLock={isLocked} date={date} />
-          {isLocked && (
+          <StatusBar showLock={showLock} date={date} />
+          {showLock && (
             <div>
               <TimeBar date={date} />
               <LockBar />
-              <LockButton onUnlock={() => setIsLocked(false)} />
+              <LockButton onUnlock={handleUnlock} />
             </div>
           )}
-          {!isLocked && (
-            <div>
-              {activeApp === null && (
-                <div>
-                  <DockBar onAppClick={setActiveApp} />
-                  <AppScreen date={date} onAppClick={setActiveApp} />
-                </div>
-              )}
-              {activeApp === 'Biography' && <BiographyScreen />}
-              {activeApp === 'Projects' && <ProjectsScreen />}
-              {activeApp === 'Designs' && <DesignsScreen />}
-              {activeApp && (
-                <button
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                    setActiveApp(null);
-                  }}
-                  className="fixed top-[35px] left-2 bg-[#007AFF] text-white px-4 py-1.5 rounded-full text-sm font-medium opacity-90 hover:opacity-100 transition-all z-50 shadow-lg"
-                >
-                  ← Back
-                </button>
-              )}
-            </div>
+          {!showLock && (
+            <main>
+              <Routes>
+                <Route path="/" element={<HomeScreen date={date} />} />
+                <Route path="/biography" element={<><BiographyScreen /><BackButton /></>} />
+                <Route path="/projects" element={<><ProjectsScreen /><BackButton /></>} />
+                <Route path="/designs" element={<><DesignsScreen /><BackButton /></>} />
+              </Routes>
+            </main>
           )}
         </div>
       </div>
